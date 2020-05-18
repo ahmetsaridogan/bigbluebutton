@@ -145,6 +145,7 @@ class ActionsDropdown extends PureComponent {
             label={formatMessage(takePresenter)}
             description={formatMessage(takePresenterDesc)}
             key={this.takePresenterId}
+            color="danger"
             onClick={() => handleTakePresenter()}
           />
         )
@@ -157,6 +158,7 @@ class ActionsDropdown extends PureComponent {
             label={formatMessage(presentationLabel)}
             description={formatMessage(presentationDesc)}
             key={this.presentationItemId}
+            color="danger"
             onClick={this.handlePresentationClick}
           />
         )
@@ -169,6 +171,7 @@ class ActionsDropdown extends PureComponent {
               : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
             description="External Video"
             key="external-video"
+            color="danger"
             onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
           />
         )
@@ -212,7 +215,7 @@ class ActionsDropdown extends PureComponent {
             className={styles.button}
             label={intl.formatMessage(intlMessages.actionsLabel)}
             icon="plus"
-            color="primary"
+            color="danger"
             size="lg"
             circle
             onClick={() => null}

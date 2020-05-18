@@ -131,7 +131,7 @@
 // When hovering over a button of class audioBtn, change the border colour of first span-child
 .audioBtn:hover span:first-child,
 .audioBtn:focus span:first-child {
-  border: 5px solid var(--color-primary);
+  border: 5px solid var(--color-danger);
   background-color: #f1f8ff;
 }
 

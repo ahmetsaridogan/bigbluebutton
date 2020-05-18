@@ -28,7 +28,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 var(--border-size) var(--color-primary);
+    box-shadow: 0 0 0 var(--border-size) var(--color-danger);
   }
 }
 
@@ -36,8 +36,8 @@
   @extend %recordingControl;
 
   padding: 5px;
-  background-color: var(--color-primary);
-  border: var(--border-size-large) solid var(--color-primary);
+  background-color: var(--color-danger);
+  border: var(--border-size-large) solid var(--color-danger);
 
   &:focus {
     background-clip: padding-box;
@@ -49,11 +49,11 @@
   @extend %recordingControl;
 
   padding: 7px;
-  border: var(--border-size-small) solid var(--color-white);
+  border: var(--border-size-small) solid var(--color-danger);
   
   &:focus {
     padding: 5px;
-    border: var(--border-size-large) solid var(--color-white);
+    border: var(--border-size-large) solid var(--color-danger);
     box-shadow: none;
   }
 }
