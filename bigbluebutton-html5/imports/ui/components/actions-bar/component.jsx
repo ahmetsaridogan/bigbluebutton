@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import cx from 'classnames';
 import { styles } from './styles.scss';
 import DesktopShare from './desktop-share/component';
-import ActionsDropdown from './actions-dropdown/component';
+import ActionsDropdown from './actions-dropdown/button-component';
 import QuickPollDropdown from './quick-poll-dropdown/component';
 import AudioControlsContainer from '../audio/audio-controls/container';
 import JoinVideoOptionsContainer from '../video-provider/video-button/container';
