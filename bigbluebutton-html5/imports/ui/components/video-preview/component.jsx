@@ -615,7 +615,7 @@ class VideoPreview extends Component {
               disabled={shouldDisableButtons}
             />
             <Button
-              color="primary"
+              color="danger"
               label={intl.formatMessage(intlMessages.startSharingLabel)}
               onClick={this.handleStartSharing}
               disabled={isStartSharingDisabled || isStartSharingDisabled === null || shouldDisableButtons}

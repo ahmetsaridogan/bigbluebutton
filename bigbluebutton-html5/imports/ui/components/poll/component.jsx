@@ -200,7 +200,7 @@ class Poll extends Component {
             }
           }}
           label={intl.formatMessage(intlMessages.startCustomLabel)}
-          color="primary"
+          color="danger"
           aria-disabled={isDisabled}
           disabled={isDisabled}
           className={styles.btn}
@@ -297,7 +297,7 @@ class Poll extends Component {
         <h4>{intl.formatMessage(intlMessages.noPresentationSelected)}</h4>
         <Button
           label={intl.formatMessage(intlMessages.clickHereToSelect)}
-          color="primary"
+          color="danger"
           onClick={() => mountModal(<PresentationUploaderContainer />)}
           className={styles.pollBtn}
         />

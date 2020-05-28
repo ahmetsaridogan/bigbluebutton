@@ -8,7 +8,6 @@ import Button from '/imports/ui/components/button/component';
 // import DropdownContent from '/imports/ui/components/dropdown/content/component';
 // import DropdownList from '/imports/ui/components/dropdown/list/component';
 // import DropdownListItem from '/imports/ui/components/dropdown/list/item/component';
-import Button from '/imports/ui/components/button/component';
 import PresentationUploaderContainer from '/imports/ui/components/presentation/presentation-uploader/container';
 import { withModalMounter } from '/imports/ui/components/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';

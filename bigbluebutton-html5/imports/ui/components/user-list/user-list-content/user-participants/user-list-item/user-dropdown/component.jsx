@@ -426,7 +426,7 @@ class UserDropdown extends PureComponent {
               </div>
               <div className={styles.footer}>
                 <Button
-                  color="primary"
+                  color="danger"
                   className={styles.button}
                   label={intl.formatMessage(messages.yesLabel)}
                   onClick={() => {

@@ -159,6 +159,7 @@ class PresentationArea extends PureComponent {
       this.setState({
         presentationAreaHeight: presentationSizes.presentationAreaHeight,
         presentationAreaWidth: presentationSizes.presentationAreaWidth,
+        // showSlide: true, :DEGISTRILDI 
         showSlide: true,
       });
     }
