@@ -293,6 +293,9 @@ class PresentationArea extends PureComponent {
     if (!shouldEnableSwapLayout() || isFullscreen) {
       return null;
     }
+
+    console.log(MediaService.toggleSwapLayout)
+
     return <PresentationCloseButton toggleSwapLayout={MediaService.toggleSwapLayout} />;
   }
 

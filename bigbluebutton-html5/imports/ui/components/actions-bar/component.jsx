@@ -47,6 +47,9 @@ class ActionsBar extends PureComponent {
     return (
       <div className={styles.actionsbar}>
         <div className={styles.left}>
+          
+        </div>
+        <div className={cx(actionBarClasses)}>
           <ActionsDropdown {...{
             amIPresenter,
             amIModerator,
@@ -77,8 +80,7 @@ class ActionsBar extends PureComponent {
             )
             : null
           }
-        </div>
-        <div className={cx(actionBarClasses)}>
+          
           <AudioControlsContainer />
           {enableVideo
             ? (

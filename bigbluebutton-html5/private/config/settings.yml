@@ -6,7 +6,7 @@ public:
     autoJoin: true
     listenOnlyMode: true
     forceListenOnly: false
-    skipCheck: false
+    skipCheck: false # audi options modal 
     clientTitle: BigBlueButton
     appName: BigBlueButton HTML5 Client
     bbbServerVersion: 2.2
@@ -85,7 +85,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: ws://192.168.1.118/bbb-webrtc-sfu
+    wsUrl: ws://192.168.1.101/bbb-webrtc-sfu
     chromeDefaultExtensionKey: akgoaoikmbmhcopjgakkcepdgdgkjfbc
     chromeDefaultExtensionLink: https://chrome.google.com/webstore/detail/bigbluebutton-screenshare/akgoaoikmbmhcopjgakkcepdgdgkjfbc
     chromeExtensionKey: KEY
@@ -139,6 +139,7 @@ public:
     time: 5000
   chat:
     enabled: true
+    startClosed: true
     min_message_length: 1
     max_message_length: 5000
     grouping_messages_window: 10000
@@ -166,8 +167,8 @@ public:
       showControls: true
       rtl: false
   layout:
-    autoSwapLayout: false
-    hidePresentation: false
+    autoSwapLayout: true # pdf alanını kapalı hale getir
+    hidePresentation: false # pdf alanı tamamen kapat
   media:
     stunTurnServersFetchAddress: "/bigbluebutton/api/stuns"
     mediaTag: "#remote-media"

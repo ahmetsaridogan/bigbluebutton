@@ -90,7 +90,7 @@ class NavBar extends PureComponent {
 
     return (
       <div className={styles.navbar}>
-        <div className={styles.top}>
+        <div className={styles.bottom}>
           <div className={styles.left}>
             {!isExpanded ? null
               : <Icon iconName="left_arrow" className={styles.arrowLeft} />
