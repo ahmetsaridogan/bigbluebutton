@@ -37,8 +37,11 @@ function fullscreenRequest(element) {
 }
 
 const toggleFullScreen = (ref = null) => {
+
+  
   const element = ref || document.documentElement;
 
+  console.log("Fullscreen",element, ref);
   if (isFullScreen(element)) {
     cancelFullScreen();
   } else {
