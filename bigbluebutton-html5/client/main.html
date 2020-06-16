@@ -70,6 +70,41 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
   <script src="compatibility/sip.js?v=VERSION" language="javascript"></script>
   <script src="compatibility/kurento-extension.js?v=VERSION" language="javascript"></script>
   <script src="compatibility/kurento-utils.js?v=VERSION" language="javascript"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    var socket = io.connect('http://192.168.1.133:3333');
+    socket.on('meeting-event', function(data){
+      console.log(data)
+      if(data.meetingId){
+        if(data.meetingId == sessionStorage.getItem('BBB_meetingID')){
+          switch (data.event) {
+            case "openPanel":
+                // userlist, pool, chat, kapat = ''
+                Session.set("openPanel", data.value);
+              break;
+          
+            default:
+              break;
+          }
+        }
+      }
+      // $('#messages').append($('<li>').text(data.message));
+    });
+
+    // setTimeout(
+    // function() {
+    //   console.log(sessionStorage.getItem('BBB_fullname'))
+    //   if(sessionStorage.getItem('BBB_fullname')=="baalan_kayitci"){
+    //           Session.set("openPanel","");
+    //           // document.getElementsByTagName("header")[0].style.visibility="hidden";
+    //           // var MTInput = document.getElementsByTagName("button");
+    //           // var MTInputList = Array.prototype.slice.call(MTInput);
+    //           // MTInputList.forEach(element => element.style.visibility="hidden");
+    //   }
+    // }, 6000);
+  </script>
 </head>
 <body style="background-color: #000">
   <div id="app" role="document"></div>
