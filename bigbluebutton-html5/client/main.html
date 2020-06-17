@@ -74,7 +74,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
-    var socket = io.connect('http://192.168.1.133:3333');
+    var socket = io.connect('https://192.168.1.133:3333');
     socket.on('meeting-event', function(data){
       console.log(data)
       if(data.meetingId){
@@ -83,6 +83,17 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
             case "openPanel":
                 // userlist, pool, chat, kapat = ''
                 Session.set("openPanel", data.value);
+              break;
+            
+            case "presentation":
+                if(data.value == "presentation_open"){
+                  $(".icon-bbb-presentation").closest("button").click()
+                }
+
+                if(data.value == "presentation_close"){
+                  $(".icon-bbb-minus").closest("button").click()
+                }
+                  
               break;
           
             default:
