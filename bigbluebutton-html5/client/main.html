@@ -72,17 +72,17 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
   <script src="compatibility/kurento-utils.js?v=VERSION" language="javascript"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
-    setTimeout(
-    function() { 
-      if(sessionStorage.getItem('BBB_fullname')=="baalan_kayitci"){
+    setTimeout(function() { 
+      // if(sessionStorage.getItem('BBB_fullname')=="baalan_kayitci"){
+
             Session.set("openPanel","");
             document.getElementsByClassName("icon-bbb-listen")[0].parentElement.click();
-            document.getElementsByTagName("header")[0].style.visibility="hidden";
+            document.getElementsByTagName("header")[0].style.opacity="0";
             var MTInput = document.getElementsByTagName("button");
             var MTInputList = Array.prototype.slice.call(MTInput);
-            MTInputList.forEach(element => element.style.visibility="hidden");
+            MTInputList.forEach(element => element.style.opacity="0");
 
             // SOCKET IO
             var socket = io.connect('https://baalanio.mediatriple.net:3333');
@@ -91,6 +91,10 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
               if(data.meetingId){
                 if(data.meetingId == sessionStorage.getItem('BBB_meetingID')){
                   switch (data.event) {
+                    case "bodySetDiv":
+                        $(data.value).insertBefore( "#app" );
+                      break;
+
                     case "openPanel":
                         // userlist, pool, chat, kapat = ''
                         Session.set("openPanel", data.value);
@@ -98,23 +102,29 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
                     
                     case "presentation":
                         if(data.value == "open"){
-                          if($("section[class*='media'] div[class*='hideOverlay']").length == 1){
+                          if($("section[class*='media'] div[class*='container'] div[class*='overlay']").length == 1){
                             $(".icon-bbb-presentation").closest("button").click()
                           }
                         }
 
                         if(data.value == "close"){
-                          if($("section[class*='media'] div[class*='hideOverlay']").length == 0){
+                          if($("section[class*='media'] div[class*='container'] div[class*='overlay']").length == 0){
                             $(".icon-bbb-minus").closest("button").click()
                           }
                         }
                         
                         if(data.value == 'fullscreen_on'){
-                          $("div[class*='presentationArea'] button[class*='fullScreenButton']").click()
+                          if($("section[class*='media'] div[class*='hideOverlay']").length == 0){
+                            console.log('calıs')
+                            $("div[class*='presentationArea'] button[class*='fullScreenButton']").click()
+                          }
                         }
 
                         if(data.value == 'fullscreen_off'){
-                          $("div[class*='presentationArea'] button[class*='fullScreenButton']").click()
+                          if($("section[class*='media'] div[class*='hideOverlay']").length == 0){
+                            console.log('calıs')
+                            $("div[class*='presentationArea'] button[class*='fullScreenButton']").click()
+                          } 
                         }
 
                       break;
@@ -125,9 +135,8 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
                 }
               }
             });
-      }
+      // }
     }, 6000);
-    
   </script>
 </head>
 <body style="background-color: #000">
