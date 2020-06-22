@@ -94,6 +94,15 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
                     case "bodySetDiv":
                         $(data.value).insertBefore( "#app" );
                       break;
+                    
+                    case "setLayerImage":
+                        console.log(data.value)
+                        $('#'+data.value.layerId).empty();
+                        if(data.value.image_url){
+                          $('#'+data.value.layerId).append('<img src="'+data.value.image_url+'">')
+                        }
+                        
+                      break;
 
                     case "openPanel":
                         // userlist, pool, chat, kapat = ''
@@ -140,6 +149,41 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
   </script>
 </head>
 <body style="background-color: #000">
+  <style>
+    #layers{
+      height: 100%; width: 100vw; overflow: hidden; position: absolute; z-index: 9999999999; 
+    }
+    #content{
+      position: relative; height: 100%; width: 100vw; overflow: hidden;
+    }
+    .layer{
+      height: 100%; width: 100vw; overflow: hidden; position: absolute;
+    }
+    #layer-0{ z-index: 0; }
+    #layer-1{ z-index: 1; }
+    #layer-2{ z-index: 2; }
+    #layer-3{ z-index: 3; }
+    #layer-4{ z-index: 4; }
+    #layer-5{ z-index: 5; }
+    #layer-6{ z-index: 6; }
+    #layer-7{ z-index: 7; }
+    #layer-8{ z-index: 8; }
+    #layer-9{ z-index: 9; }
+  </style>
+  <div id="layers">
+    <div id="content">
+      <div class="layer" id="layer-0"></div>
+      <div class="layer" id="layer-1"></div>
+      <div class="layer" id="layer-2"></div>
+      <div class="layer" id="layer-3"></div>
+      <div class="layer" id="layer-4"></div>
+      <div class="layer" id="layer-5"></div>
+      <div class="layer" id="layer-6"></div>
+      <div class="layer" id="layer-7"></div>
+      <div class="layer" id="layer-8"></div>
+      <div class="layer" id="layer-9"></div>
+    </div>
+  </div>
   <div id="app" role="document"></div>
   <audio id="remote-media" autoPlay="autoplay">
     <track kind="captions" /> {/* These captions are brought to you by eslint */}
