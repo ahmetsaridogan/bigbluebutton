@@ -98,9 +98,11 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
                     case "setLayerImage":
                         console.log(data.value)
                         $('#'+data.value.layerId).empty();
-                        if(data.value.image_url){
-                          $('#'+data.value.layerId).append('<img src="'+data.value.image_url+'">')
-                        }
+                        // if(data.value.show == "true"){
+                          if(data.value.image_url){
+                            $('#'+data.value.layerId).append('<img src="'+data.value.image_url+'">')
+                          }
+                        // }
                         
                       break;
 
